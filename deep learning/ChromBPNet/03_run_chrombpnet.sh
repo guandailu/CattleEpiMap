@@ -9,7 +9,7 @@ conda activate chrombpnet
 module load apptainer
 module load cuda/11.7.1 
 mkdir -p ATAC_bams/${tissue}/APPTAINER_CACHEDIR
-export APPTAINER_CACHEDIR="/group/zhougrp2/dguan/BovineFAANG/23_deep_learning/chrombpnet/ATAC_bams/${tissue}/APPTAINER_CACHEDIR"
+export APPTAINER_CACHEDIR="chrombpnet/ATAC_bams/${tissue}/APPTAINER_CACHEDIR"
 #### Bias model training
 singularity  exec --nv -e --no-mount hostfs --bind ATAC_bams/${tissue}/:/mnt docker://kundajelab/chrombpnet:latest chrombpnet bias pipeline \
         -ibam /mnt/data/merged.bam \
